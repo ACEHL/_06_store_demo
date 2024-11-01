@@ -1,0 +1,31 @@
+
+spring:
+    application:
+        name: _06_store_demo
+    datasource:
+        url: jdbc:mysql://localhost:3306/db_store?allowMutiQueries=true&rewriteBatchedStatements=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&allowPublicKeyRetrieval=true #mysql连接
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        hikari:
+            idle-timeout: 60000
+            maximum-pool-size: 30
+            minimum-idle: 10
+            max-lifetime: 12
+            connection-test-query: SELECT 1
+mybatis-plus:
+    mapper-locations: classpath:/mapper/*.xml
+    configuration:
+        auto-mapping-behavior: partial
+        map-underscore-to-camel-case: true
+        call-setters-on-nulls: true
+        default-fetch-size: 1000
+    global-config:
+        db-config:
+            id-type: auto
+
+logging:
+    level:
+        root: info
+        com.baomidou: debug
+        top.resty.store.mapper: debug
